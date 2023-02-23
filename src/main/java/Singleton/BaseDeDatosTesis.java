@@ -13,11 +13,11 @@ public class BaseDeDatosTesis {
     }
     public static BaseDeDatosTesis getInstance(){
         if(instance == null){
-            //multithreadControl();
+            multithreadControl();
         }
         return instance;
     }
-    private synchronized void  registrarTesis(Tesis tesis, Date date) {
+    private synchronized void  registrarTesis (Tesis tesis, Date date) {
         if (registro.containsKey(tesis)) {
             System.out.println("Estamos registrando la tesis de:" + tesis.getDatosEstudiante().getNombre() + "en la fecha:" + date);
             registro.put(tesis, date);

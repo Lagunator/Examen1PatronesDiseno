@@ -21,6 +21,9 @@ public class JefeRecursosHumanos {
             this.ci = ci;
     }
     public void registarTesis(Tesis tesis, Date date){
+        BaseDeDatosTesis.getInstance().registrarTesis(tesis, date);
+    }
+    public void verRegistro(){
         BaseDeDatosTesis.getInstance().verRegistro();
     }
 }
