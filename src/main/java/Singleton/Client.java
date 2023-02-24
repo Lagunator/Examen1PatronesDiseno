@@ -44,11 +44,6 @@ public class Client {
         opcion1.setMencion("Motos");
         opcion1.setDatosEstudiante(estudiante4);
     }
-    Thread thread1 = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            jefeRecursosHumanos.registrarTesis(tema1, new Date());
-            jefeRecursosHumanos.verRegistro();
-        }
-    });
+
+
 }

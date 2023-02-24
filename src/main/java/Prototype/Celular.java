@@ -1,29 +1,30 @@
 package Prototype;
 
-public class Celular implements ICelular{
+public class Celular implements ICelular {
+
     private String modelo;
-    private String tamano;
+    private String tamanio;
     private int peso;
     private Camara camara;
     private int imei;
     private String origen;
 
-    public Celular() {
-    }
-    public String getModelo(){
+    public Celular() {}
+
+    public String getModelo() {
         return modelo;
     }
 
-    public String getTamano() {
-        return tamano;
-    }
-
-    public void setTamano(String tamano) {
-        this.tamano = tamano;
-    }
-
-    public void setModelo(String modelo){
+    public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public String getTamanio() {
+        return tamanio;
+    }
+
+    public void setTamanio(String tamanio) {
+        this.tamanio = tamanio;
     }
 
     public int getPeso() {
@@ -56,6 +57,42 @@ public class Celular implements ICelular{
 
     public void setOrigen(String origen) {
         this.origen = origen;
+    }
+
+    public void showInfo() {
+
+        System.out.println("Modelo: " + getModelo());
+        System.out.println("Peso: " + getPeso());
+        System.out.println("Tamaño: " + getTamanio());
+        System.out.println("Camara Foco: " + getCamara().getFoco());
+        System.out.println("Camara Lente:  " + getCamara().getLente());
+        System.out.println("Imei: " + getImei());
+        System.out.println("Pais Creado: " + getOrigen());
+
+        System.out.println("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*");
+
+    }
+
+    @Override
+    public Object clone() {
+
+        Celular celular = new Celular();
+        Camara camara = new Camara();
+
+        camara.setFoco(this.getCamara().getFoco());
+        camara.setLente(this.getCamara().getLente());
+
+        celular.setModelo(this.getModelo());
+        celular.setTamanio(this.getTamanio());
+        celular.setPeso(this.getPeso());
+        celular.setCamara(camara);
+        celular.setOrigen(this.getOrigen());
+
+        return celular;
+
+
+
+
     }
 
 }
